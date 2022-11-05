@@ -1,5 +1,23 @@
-import redis_user from './services/user/index.js'
+import redis_user from './services/user/index.js';
+import redis_group from './services/group/index.js';
 
+// CREATE GROUP
+(async()=>{
+  console.time();
+  await redis_group.CreateGroup(
+    {
+      groupId: 22,
+      groupTitle: 'Redis',
+      groupSubTitle: '',
+      groupTagline: '',
+      groupCode: '',
+      groupImage: '',
+      accountId: 1,
+      groupType: ''
+  })
+  console.timeEnd();
+})();
+// CREATE USER
 (async()=>{
   console.time();
   await redis_user.CreateUser(
@@ -16,8 +34,9 @@ import redis_user from './services/user/index.js'
       socketStatus: 'ACTIVE'
   })
   console.timeEnd();
-})()
+});
 
 export default {
-  redis_user
+  redis_user,
+  redis_group
 }
