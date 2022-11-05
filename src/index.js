@@ -17,3 +17,7 @@ import redis_user from './services/user/index.js'
   })
   console.timeEnd();
 })()
+
+export default {
+  redis_user
+}
