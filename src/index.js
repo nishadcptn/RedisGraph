@@ -15,26 +15,26 @@ import redis_group from './services/group/index.js';
       accountId: 1,
       groupType: ''
   })
+  // await redis_group.AddMember(22,2);
+  await redis_group.RemoveMember(22,2);
   console.timeEnd();
 })();
 // CREATE USER
 (async()=>{
-  console.time();
   await redis_user.CreateUser(
     {
       accountId: 2,
-      handle: 'safvan',
+      handle: 'Adarsh',
       isVerified: true,
-      userName: 'safvan cp',
+      userName: 'Adarsh',
       status: 'new',
       profileImageUrl:null,
-      joinedDate: '2022-11-05',
+      joinedDate: '2022-11-07',
       geoLocation: null,
       private: false,
       socketStatus: 'ACTIVE'
   })
-  console.timeEnd();
-});
+})();
 
 export default {
   redis_user,

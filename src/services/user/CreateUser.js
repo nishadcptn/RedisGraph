@@ -21,9 +21,9 @@ export default async function (userInfo) {
                 })`
             );
             await graph.query(
-                `CREATE (u:USER {
+                `MATCH (u:USER {
                     accountId: ${userInfo.accountId}
-                })-[f:FOLLOWING]->(u)`
+                }) CREATE (u)-[f:FOLLOWING]->(u)`
             );
         }else{
             await graph.query(

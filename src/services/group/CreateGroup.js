@@ -19,11 +19,11 @@ export default async function (groupInfo) {
                 })`
             );
             await graph.query(
-                `CREATE (u:USER {
+                `MATCH (u:USER {
                     accountId: ${groupInfo.accountId}
-                })-[o:OWNER]->(g:GROUP {
+                }),(g:GROUP {
                     groupId: ${groupInfo.groupId}
-                })`
+                }) CREATE (u)-[o:OWNER]->(g)`
             );
         }else{
             await graph.query(
