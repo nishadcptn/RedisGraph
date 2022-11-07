@@ -14,9 +14,20 @@
         socketStatus: 'ACTIVE'
     })`
 
-2 - CREATE GROUP - []
+2 - CREATE GROUP - [07-11-2022]
   --GROUP - USER CONNECTION 
-
+    EG :-
+    `await redis_group.CreateGroup(
+    {
+      groupId: 22,
+      groupTitle: 'Redis',
+      groupSubTitle: '',
+      groupTagline: '',
+      groupCode: '',
+      groupImage: '',
+      accountId: 1,
+      groupType: ''
+    })`
 3 - CREATE POST - []
   --USER - POST CONNECTION 
   --GROUP - POST CONNECTION 
