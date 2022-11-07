@@ -16,7 +16,13 @@ import redis_group from './services/group/index.js';
       groupType: ''
   })
   // await redis_group.AddMember(22,2);
-  await redis_group.RemoveMember(22,2);
+  // await redis_group.CreateInvite(22,2);
+  // await redis_group.CreateRequest(22,2);
+
+
+  // await redis_group.RemoveMember(22,2);
+  // await redis_group.DeleteInvite(22,2);
+  // await redis_group.DeleteRequest(22,2);
   console.timeEnd();
 })();
 // CREATE USER

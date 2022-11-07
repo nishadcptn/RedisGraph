@@ -1,6 +1,6 @@
 import { graph } from "../../config/index.js";
 
-export async function AddMember(groupId, accountId) {
+export async function CreateInvite(groupId, accountId) {
     try{
         const result = await graph.roQuery(
             `MATCH (u:USER { 
@@ -10,26 +10,18 @@ export async function AddMember(groupId, accountId) {
             }) RETURN m`
         );
         const existingRelation = result.data.map(item=> item.m.relationshipType)
-        
         if( 
             result.data.length === 0 || 
             (!existingRelation.includes('MEMBER') &&
-            !existingRelation.includes('OWNER')) 
+            !existingRelation.includes('INVITED') &&
+            !existingRelation.includes('OWNER'))
         ){
-            await graph.query(
-                `MATCH (u:USER { 
-                    accountId: ${accountId} 
-                })-[m:REQUESTED|INVITED]->(g:GROUP { 
-                    groupId: ${groupId} 
-                }) DELETE m`
-            );
-
             let r = await graph.query(
                 `MATCH (u:USER {
                     accountId: ${accountId}
                 }),(g:GROUP {
                     groupId: ${groupId}
-                }) CREATE (u)-[o:MEMBER]->(g) RETURN o`
+                }) CREATE (u)-[o:INVITED]->(g) RETURN o`
             );
             console.log(r);
         }
@@ -38,12 +30,12 @@ export async function AddMember(groupId, accountId) {
     }
 };
 
-export const RemoveMember = async (groupId, accountId) =>{
+export const DeleteInvite = async (groupId, accountId) =>{
     try{
         await graph.query(
             `MATCH (u:USER { 
                 accountId: ${accountId} 
-            })-[m:MEMBER|OWNER]->(g:GROUP { 
+            })-[m:INVITED]->(g:GROUP { 
                 groupId: ${groupId} 
             }) DELETE m`
         );
