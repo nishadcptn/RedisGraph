@@ -1,4 +1,4 @@
-1. CREATE UPDATE USER - [05-11-2022]\
+1. CREATE UPDATE USER - [05-11-2022]
   - USER - USER CONNECTION - [ *DONE* ]\
     EG :-
 ```
@@ -16,7 +16,7 @@
     })
 ```
 
-2. CREATE GROUP - [07-11-2022]\
+2. CREATE GROUP - [07-11-2022]
   - GROUP - USER CONNECTION [ *DONE* ]\
     EG :-
 ```
@@ -31,7 +31,7 @@
         groupType: ''
       })
 ```
-3.  CREATE POST - [08-11-2022]\
+3.  CREATE POST - [08-11-2022]
   - USER - POST CONNECTION [ *DONE* ]
   - GROUP - POST CONNECTION [ *DONE* ]
   - POST - MENTIONED USER CONNECTION [ *DONE* ] 
@@ -75,14 +75,14 @@
       })
 ```
   
-4. USER FOLLOW - [08-11-2022]\
+4. USER FOLLOW - [08-11-2022]
   - USER - USER CONNECTION [ *DONE* ]\
   EG :- 
 ```  
    await redis_user.FollowUser(1,2);
 ```
 
-5. USER UNFOLLOW - [08-11-2022]\
+5. USER UNFOLLOW - [08-11-2022]
   - REMOVE USER - USER CONNECTION [ *DONE* ]\
   EG :- 
   ```
